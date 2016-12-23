@@ -3,6 +3,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { DOCUMENT } from '@angular/platform-browser';
 
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { DocumentStub } from '../testing/document.stub';
 
@@ -10,6 +11,9 @@ describe('AppComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        SharedModule
+      ],
       declarations: [
         AppComponent
       ]

@@ -52,3 +52,12 @@ $para-app-accent: md-palette($md-blue-grey);
 $para-app-theme: md-light-theme($para-app-primary, $para-app-accent);
 
 @include angular-material-theme($para-app-theme);
+
+//
+// App
+//
+
+html,
+body {
+  height: 100%;
+}

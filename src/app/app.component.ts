@@ -9,6 +9,11 @@ import { DOCUMENT } from '@angular/platform-browser';
 export class AppComponent {
 
   constructor(@Inject(DOCUMENT) document: any) {
+    const splashEl = document.querySelector('.splash');
+    splashEl.addEventListener('transitionend', () => {
+      document.body.removeChild(splashEl);
+    });
+
     document.body.classList.remove('loading');
   }
 
