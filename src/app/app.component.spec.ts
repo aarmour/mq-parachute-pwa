@@ -2,6 +2,7 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { DOCUMENT } from '@angular/platform-browser';
+import { MaterialModule } from '@angular/material';
 
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,8 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        SharedModule
+        SharedModule,
+        MaterialModule.forRoot()
       ],
       declarations: [
         AppComponent

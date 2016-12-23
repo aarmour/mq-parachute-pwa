@@ -1,4 +1,8 @@
-<div class="main"></div>
+<md-sidenav-container>
+  <md-sidenav #start>
+  </md-sidenav>
+  <div class="main"></div>
+</md-sidenav-container>
 <div class="nav">
-  <pa-bottom-nav></pa-bottom-nav>
+  <pa-bottom-nav (openMenu)="toggleSideNav(start)"></pa-bottom-nav>
 </div>

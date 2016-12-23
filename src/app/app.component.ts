@@ -17,4 +17,8 @@ export class AppComponent {
     document.body.classList.remove('loading');
   }
 
+  toggleSideNav(nav) {
+    nav.opened ? nav.close() : nav.open();
+  }
+
 }
