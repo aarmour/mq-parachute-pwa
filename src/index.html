@@ -35,12 +35,16 @@
     }
     .splash-inner { display: flex; flex-direction: column; height: 100%; }
     .splash-body { flex: 1; }
-    .splash-footer { height: 56px; background: black; }
+    .splash-footer { height: 64px; background: black; }
     .splash-logo {
-      margin: 12px 0;
+      margin: 16px 0;
       height: 32px;
       background: url(/assets/mq-logo.png) no-repeat center center;
       background-size: contain;
+    }
+    @media (max-width: 600px) and (orientation: portrait) {
+      .splash-footer { height: 56px; }
+      .splash-logo { margin: 12px 0; }
     }
     .shell-spinner {
       font-size: 10px;
