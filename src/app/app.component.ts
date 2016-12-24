@@ -8,6 +8,14 @@ import { DOCUMENT } from '@angular/platform-browser';
 })
 export class AppComponent {
 
+  navItems = [
+    { icon: 'home', label: 'Home' },
+    { icon: 'highlight', label: 'Featured' },
+    { icon: 'local_airport', label: 'Travel' },
+    { icon: 'place', label: 'Local' },
+    { icon: 'music_note', label: 'Sounds Local' }
+  ];
+
   constructor(@Inject(DOCUMENT) document: any) {
     const splashEl = document.querySelector('.splash');
     splashEl.addEventListener('transitionend', () => {
