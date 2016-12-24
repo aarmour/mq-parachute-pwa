@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 
 import { BottomNavComponent } from './bottom-nav/bottom-nav.component';
 import { NavListComponent } from './nav-list/nav-list.component';
+import { PanelComponent, PanelService } from './panel';
 
 @NgModule({
   imports: [
@@ -14,11 +15,16 @@ import { NavListComponent } from './nav-list/nav-list.component';
   ],
   declarations: [
     BottomNavComponent,
-    NavListComponent
+    NavListComponent,
+    PanelComponent
   ],
   exports: [
     BottomNavComponent,
-    NavListComponent
+    NavListComponent,
+    PanelComponent
+  ],
+  providers: [
+    PanelService
   ]
 })
 export class SharedModule { }

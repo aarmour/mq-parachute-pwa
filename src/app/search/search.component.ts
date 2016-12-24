@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { PanelService } from '../shared/panel';
 
 @Component({
   selector: 'pa-search',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('input') input: any;
+
+  constructor(private panelService: PanelService) { }
 
   ngOnInit() {
+    this.input.nativeElement.focus();
+  }
+
+  onPanelClose() {
+    this.panelService.close();
   }
 
 }

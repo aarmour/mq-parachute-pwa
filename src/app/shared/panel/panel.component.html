@@ -1,0 +1,10 @@
+<md-toolbar>
+  <span>{{heading}}</span>
+  <span class="spacer"></span>
+  <button md-icon-button (click)="onCloseClick()">
+    <md-icon>close</md-icon>
+  </button>
+</md-toolbar>
+<div class="content">
+  <ng-content></ng-content>
+</div>
