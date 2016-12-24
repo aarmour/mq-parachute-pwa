@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { Event as NavigationEvent, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'pa-root',
@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  sidenavOpened = false;
 
   navItems = [
     { icon: 'home', label: 'Home', routerLink: '/home' },
@@ -27,10 +29,17 @@ export class AppComponent {
     });
 
     document.body.classList.remove('loading');
+
+    router.events.forEach((event: NavigationEvent) => {
+      if(event instanceof NavigationStart) {
+        this.sidenavOpened = false;
+      }
+    });
   }
 
   toggleSideNav(nav) {
-    nav.opened ? nav.close() : nav.open();
+    // nav.opened ? nav.close() : nav.open();
+    this.sidenavOpened = !this.sidenavOpened;
   }
 
   navigateToSearch() {

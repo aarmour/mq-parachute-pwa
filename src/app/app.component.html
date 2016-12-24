@@ -1,5 +1,5 @@
 <md-sidenav-container>
-  <md-sidenav #start>
+  <md-sidenav #start [opened]="sidenavOpened">
     <pa-nav-list [navItems]="navItems"></pa-nav-list>
   </md-sidenav>
   <div class="main">
