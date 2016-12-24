@@ -8,6 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class BottomNavComponent implements OnInit {
 
   @Output() openMenu: EventEmitter<any> = new EventEmitter();
+  @Output() search: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -16,6 +17,10 @@ export class BottomNavComponent implements OnInit {
 
   openMenuClick($event) {
     this.openMenu.emit($event);
+  }
+
+  searchClick($event) {
+    this.search.emit($event);
   }
 
 }

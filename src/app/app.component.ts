@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pa-root',
@@ -9,14 +10,17 @@ import { DOCUMENT } from '@angular/platform-browser';
 export class AppComponent {
 
   navItems = [
-    { icon: 'home', label: 'Home' },
-    { icon: 'highlight', label: 'Featured' },
-    { icon: 'local_airport', label: 'Travel' },
-    { icon: 'place', label: 'Local' },
-    { icon: 'music_note', label: 'Sounds Local' }
+    { icon: 'home', label: 'Home', routerLink: '/home' },
+    { icon: 'highlight', label: 'Featured', routerLink: '/articles/topic/featured' },
+    { icon: 'local_airport', label: 'Travel', routerLink: '/articles/topic/travel' },
+    { icon: 'place', label: 'Local', routerLink: '/articles/topic/local' },
+    { icon: 'music_note', label: 'Sounds Local', routerLink: '/sounds-local' }
   ];
 
-  constructor(@Inject(DOCUMENT) document: any) {
+  constructor(
+    @Inject(DOCUMENT) document: any,
+    private router: Router
+  ) {
     const splashEl = document.querySelector('.splash');
     splashEl.addEventListener('transitionend', () => {
       document.body.removeChild(splashEl);
@@ -27,6 +31,10 @@ export class AppComponent {
 
   toggleSideNav(nav) {
     nav.opened ? nav.close() : nav.open();
+  }
+
+  navigateToSearch() {
+    this.router.navigate(['/search']);
   }
 
 }

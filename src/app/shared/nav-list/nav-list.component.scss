@@ -1,10 +1,11 @@
-md-list-item {
-
-  a {
-    outline: 0;
-  }
+.md-list-item {
+  outline: 0;
 
   md-icon {
     margin-right: 0.5em;
+  }
+
+  &.active {
+    background: rgba(0, 0, 0, 0.04);
   }
 }

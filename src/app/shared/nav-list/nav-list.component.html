@@ -1,6 +1,10 @@
 <md-nav-list>
-  <md-list-item *ngFor="let item of navItems">
+  <!-- <md-list-item *ngFor="let item of navItems">
     <md-icon color="primary">{{item.icon}}</md-icon>
-    <a href="#">{{item.label}}</a>
-  </md-list-item>
+    <a [routerLink]="item.routerLink">{{item.label}}</a>
+  </md-list-item> -->
+  <a md-list-item class="md-list-item" *ngFor="let item of navItems" [routerLink]="item.routerLink" routerLinkActive="active">
+    <md-icon color="primary">{{item.icon}}</md-icon>
+    {{item.label}}
+  </a>
 </md-nav-list>

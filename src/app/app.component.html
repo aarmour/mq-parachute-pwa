@@ -2,8 +2,10 @@
   <md-sidenav #start>
     <pa-nav-list [navItems]="navItems"></pa-nav-list>
   </md-sidenav>
-  <div class="main"></div>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
 </md-sidenav-container>
 <div class="nav">
-  <pa-bottom-nav (openMenu)="toggleSideNav(start)"></pa-bottom-nav>
+  <pa-bottom-nav (openMenu)="toggleSideNav(start)" (search)="navigateToSearch()"></pa-bottom-nav>
 </div>

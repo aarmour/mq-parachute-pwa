@@ -13,8 +13,8 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        SharedModule,
-        MaterialModule.forRoot()
+        MaterialModule.forRoot(),
+        SharedModule
       ],
       declarations: [
         AppComponent
