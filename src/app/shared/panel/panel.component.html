@@ -1,7 +1,7 @@
 <md-toolbar>
-  <span>{{heading}}</span>
+  <span class="heading">{{heading}}</span>
   <span class="spacer"></span>
-  <button md-icon-button (click)="onCloseClick()">
+  <button md-icon-button *ngIf="mode === 'close'" (click)="onCloseClick()">
     <md-icon>close</md-icon>
   </button>
 </md-toolbar>

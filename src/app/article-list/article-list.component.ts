@@ -1,4 +1,6 @@
+import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'pa-article-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleListComponent implements OnInit {
 
-  constructor() { }
+  private heading: String;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe((params: Params) => this.heading = params['topic']);
   }
 
 }

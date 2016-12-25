@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class PanelComponent implements OnInit {
 
   @Input() heading: string;
+  @Input() mode: 'close|back';
   @Output() close: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
