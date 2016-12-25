@@ -6,10 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { SharedModule } from './shared/shared.module';
+import { ArticlesModule, ArticleListComponent, ArticleDetailComponent } from './articles';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ArticleListComponent } from './article-list/article-list.component';
-import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { SoundsLocalComponent } from './sounds-local/sounds-local.component';
@@ -28,8 +27,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    ArticleListComponent,
-    ArticleDetailComponent,
     NotFoundComponent,
     SearchComponent,
     SoundsLocalComponent,
@@ -42,7 +39,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MaterialModule.forRoot(),
     // App
-    SharedModule
+    SharedModule,
+    ArticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
