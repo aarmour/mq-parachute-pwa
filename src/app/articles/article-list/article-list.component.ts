@@ -1,6 +1,10 @@
+import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+
+import { ArticlesService } from '../articles.service';
 
 @Component({
   selector: 'pa-article-list',
@@ -10,12 +14,17 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class ArticleListComponent implements OnInit {
 
   private heading: String;
+  private articles = Observable.from([[]]);
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private articlesService: ArticlesService) { }
 
   ngOnInit() {
     this.route.params
-      .subscribe((params: Params) => this.heading = params['topic']);
+      .subscribe((params: Params) => {
+        const topic = params['topic'];
+        this.heading = topic;
+        this.articles = this.articlesService.list(topic);
+      });
   }
 
 }

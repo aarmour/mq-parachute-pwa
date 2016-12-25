@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { SharedModule } from '../shared/shared.module';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { ArticlesService } from './articles.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,9 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
   exports: [
     ArticleListComponent,
     ArticleDetailComponent
+  ],
+  providers: [
+    ArticlesService
   ]
 })
 export class ArticlesModule { }
