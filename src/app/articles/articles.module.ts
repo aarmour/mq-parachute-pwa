@@ -6,6 +6,7 @@ import { MaterialModule } from '@angular/material';
 import { SharedModule } from '../shared/shared.module';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { ArticleHeadingComponent } from './article-detail/article-heading.component';
 import { ArticlesService } from './articles.service';
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ArticlesService } from './articles.service';
   ],
   declarations: [
     ArticleListComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    ArticleHeadingComponent
   ],
   exports: [
     ArticleListComponent,

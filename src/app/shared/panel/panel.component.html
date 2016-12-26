@@ -1,4 +1,7 @@
 <md-toolbar>
+  <button md-icon-button *ngIf="mode === 'back'" (click)="onBackClick()">
+    <md-icon>chevron_left</md-icon>
+  </button>
   <span class="heading">{{heading}}</span>
   <span class="spacer"></span>
   <button md-icon-button *ngIf="mode === 'close'" (click)="onCloseClick()">

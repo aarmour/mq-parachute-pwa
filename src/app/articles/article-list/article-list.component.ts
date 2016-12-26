@@ -13,8 +13,8 @@ import { ArticlesService } from '../articles.service';
 })
 export class ArticleListComponent implements OnInit {
 
-  private heading: String;
-  private articles = Observable.from([[]]);
+  heading: String;
+  articles = Observable.from([[]]);
 
   constructor(private route: ActivatedRoute, private articlesService: ArticlesService) { }
 

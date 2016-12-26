@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ArticlesService {
 
+  /* tslint:disable */
   private articles = [
     {
       "slug": "58602d561e728bafc31121fe",
@@ -277,11 +278,12 @@ export class ArticlesService {
       "published_date": "2016-08-11T12:20:33.614Z"
     }
   ];
+  /* tslint:enable */
 
   constructor() { }
 
-  fetch(id) {
-
+  fetch(slug) {
+    return Observable.from([this.articles.filter(article => article.slug === slug)[0]]);
   }
 
   list(topic) {

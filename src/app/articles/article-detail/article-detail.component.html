@@ -1,3 +1,3 @@
-<p>
-  article-detail works!
-</p>
+<pa-panel mode="back" [heading]="(article | async).topic" (back)="onPanelBack()">
+  <pa-article-heading *ngIf="article" [article]="article | async"></pa-article-heading>
+</pa-panel>
