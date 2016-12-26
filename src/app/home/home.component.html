@@ -1,3 +1,6 @@
-<p>
-  home works!
-</p>
+<md-toolbar>
+  <span class="logo"></span>
+</md-toolbar>
+<div class="content">
+  <pa-article-list [articles]="this.homeArticles | async"></pa-article-list>
+</div>

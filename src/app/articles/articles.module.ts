@@ -4,9 +4,10 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { SharedModule } from '../shared/shared.module';
-import { ArticleListComponent } from './article-list/article-list.component';
-import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { ArticleListPanelComponent } from './article-list/article-list-panel.component';
+import { ArticleDetailPanelComponent } from './article-detail/article-detail-panel.component';
 import { ArticleHeadingComponent } from './article-detail/article-heading.component';
+import { ArticleListComponent } from './article-list/article-list.component';
 import { ArticlesService } from './articles.service';
 
 @NgModule({
@@ -17,13 +18,15 @@ import { ArticlesService } from './articles.service';
     SharedModule
   ],
   declarations: [
-    ArticleListComponent,
-    ArticleDetailComponent,
-    ArticleHeadingComponent
+    ArticleListPanelComponent,
+    ArticleDetailPanelComponent,
+    ArticleHeadingComponent,
+    ArticleListComponent
   ],
   exports: [
-    ArticleListComponent,
-    ArticleDetailComponent
+    ArticleListPanelComponent,
+    ArticleDetailPanelComponent,
+    ArticleListComponent
   ],
   providers: [
     ArticlesService

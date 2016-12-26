@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 
 import { SharedModule } from './shared/shared.module';
-import { ArticlesModule, ArticleListComponent, ArticleDetailComponent } from './articles';
+import { ArticlesModule, ArticleListPanelComponent, ArticleDetailPanelComponent } from './articles';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -15,8 +15,8 @@ import { SoundsLocalComponent } from './sounds-local/sounds-local.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'articles/topic/:topic', component: ArticleListComponent },
-  { path: 'articles/:id', component: ArticleDetailComponent },
+  { path: 'articles/topic/:topic', component: ArticleListPanelComponent },
+  { path: 'articles/:id', component: ArticleDetailPanelComponent },
   { path: 'search', component: SearchComponent },
   { path: 'sounds-local', component: SoundsLocalComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

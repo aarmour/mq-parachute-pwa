@@ -5,11 +5,11 @@ import { ArticlesService } from '../articles.service';
 import { PanelService } from '../../shared';
 
 @Component({
-  selector: 'pa-article-detail',
-  templateUrl: './article-detail.component.html',
-  styleUrls: ['./article-detail.component.scss']
+  selector: 'pa-article-detail-panel',
+  templateUrl: './article-detail-panel.component.html',
+  styleUrls: ['./article-detail-panel.component.scss']
 })
-export class ArticleDetailComponent implements OnInit {
+export class ArticleDetailPanelComponent implements OnInit {
 
   article;
 

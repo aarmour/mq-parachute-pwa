@@ -1,16 +1,14 @@
-<pa-panel [heading]="heading">
-  <md-card *ngFor="let article of articles | async">
-    <md-card-header>
-      <md-card-title-group>
-        <md-card-title class="md-card-title">
-          <a [routerLink]="['/articles', article.slug]">{{article.title}}</a>
-        </md-card-title>
-        <md-card-subtitle>By {{article.author}}</md-card-subtitle>
-      </md-card-title-group>
-    </md-card-header>
-    <img md-card-image [src]="article.thumbnail_url">
-    <md-card-content>
-      <p>{{article.short_description}}</p>
-    </md-card-content>
-  </md-card>
-</pa-panel>
+<md-card *ngFor="let article of articles">
+  <md-card-header>
+    <md-card-title-group>
+      <md-card-title class="md-card-title">
+        <a [routerLink]="['/articles', article.slug]">{{article.title}}</a>
+      </md-card-title>
+      <md-card-subtitle>By {{article.author}}</md-card-subtitle>
+    </md-card-title-group>
+  </md-card-header>
+  <img md-card-image [src]="article.thumbnail_url">
+  <md-card-content>
+    <p>{{article.short_description}}</p>
+  </md-card-content>
+</md-card>

@@ -280,14 +280,31 @@ export class ArticlesService {
   ];
   /* tslint:enable */
 
+  private homeArticleSlugs = [
+    '58602d561e728bafc31121fe',
+    '58602d568cf76d8224bfdfd2',
+    '58602d56c466f5f419334838',
+    '58602d56849c2f467d9ac256',
+    '58602d561bde20c6d266e6d0',
+    '58602d5611cf48c879776a27',
+    '58602d56b96b0ca362f699c3',
+    '58602d56b87090676d708472',
+    '58602d56c616c54d8792d455',
+    '58602d56569a130f35a7714a'
+  ];
+
   constructor() { }
 
   fetch(slug) {
     return Observable.from([this.articles.filter(article => article.slug === slug)[0]]);
   }
 
-  list(topic) {
-    return Observable.from([this.articles.filter(article => article.topic === topic)]);
+  list(topic?) {
+    if (topic) {
+      return Observable.from([this.articles.filter(article => article.topic === topic)]);
+    } else {
+      return Observable.from([this.articles.filter(article => this.homeArticleSlugs.indexOf(article.slug) !== -1)]);
+    }
   }
 
 }
