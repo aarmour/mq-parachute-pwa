@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/pairwise';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Event as NavigationEvent, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { PanelService, PanelClose } from './shared/panel';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   previousUrl: string;
   sidenavOpened = false;
@@ -24,30 +24,27 @@ export class AppComponent {
   ];
 
   constructor(
-    @Inject(DOCUMENT) document: any,
+    @Inject(DOCUMENT) private document: any,
     private router: Router,
     private panelService: PanelService
-  ) {
-    const splashEl = document.querySelector('.splash');
-    splashEl.addEventListener('transitionend', () => {
-      document.body.removeChild(splashEl);
-    });
+  ) { }
 
-    document.body.classList.remove('loading');
+  ngOnInit() {
+    this.hideSplash();
 
-    router.events.forEach((event: NavigationEvent) => {
+    this.router.events.forEach((event: NavigationEvent) => {
       if (event instanceof NavigationStart) {
         this.sidenavOpened = false;
       }
     });
 
-    router.events.pairwise().subscribe((e) => {
+    this.router.events.pairwise().subscribe((e) => {
       if (e[0] instanceof NavigationEnd) {
         this.previousUrl = e[0].url;
       }
     });
 
-    panelService.events.subscribe((e) => {
+    this.panelService.events.subscribe((e) => {
       if (e instanceof PanelClose) {
         if (this.previousUrl) {
           this.router.navigate([this.previousUrl]);
@@ -58,12 +55,22 @@ export class AppComponent {
     });
   }
 
-  toggleSideNav() {
-    this.sidenavOpened = !this.sidenavOpened;
+  hideSplash() {
+    const splashEl = document.querySelector('.splash');
+
+    splashEl.addEventListener('transitionend', () => {
+      this.document.body.removeChild(splashEl);
+    });
+
+    this.document.body.classList.remove('loading');
   }
 
   navigateToSearch() {
     this.router.navigate(['/search']);
+  }
+
+  toggleSideNav() {
+    this.sidenavOpened = !this.sidenavOpened;
   }
 
 }
