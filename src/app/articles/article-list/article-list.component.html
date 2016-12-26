@@ -2,7 +2,9 @@
   <md-card *ngFor="let article of articles | async">
     <md-card-header>
       <md-card-title-group>
-        <md-card-title class="md-card-title">{{article.title}}</md-card-title>
+        <md-card-title class="md-card-title">
+          <a [routerLink]="['/articles', article.slug]">{{article.title}}</a>
+        </md-card-title>
         <md-card-subtitle>By {{article.author}}</md-card-subtitle>
       </md-card-title-group>
     </md-card-header>
