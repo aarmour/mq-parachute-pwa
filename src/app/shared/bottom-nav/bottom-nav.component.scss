@@ -2,6 +2,10 @@
   display: block;
 }
 
-button {
+button:not([md-menu-item]) {
   margin: 0 0.8em;
+}
+
+.spacer {
+  flex: 1;
 }
