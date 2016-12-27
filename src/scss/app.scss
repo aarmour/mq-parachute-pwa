@@ -1,6 +1,19 @@
 // Additional global styles for the app.
 
+$pa-link-color: #00bfe6;
+
 html,
 body {
   height: 100%;
+}
+
+a {
+  color: $pa-link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: darken($pa-link-color, 5%);
+  }
 }
