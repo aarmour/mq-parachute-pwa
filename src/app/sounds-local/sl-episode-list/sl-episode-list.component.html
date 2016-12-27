@@ -1,0 +1,5 @@
+<pa-sl-episode-list-item
+  *ngFor="let episode of episodes; let i = index"
+  [color]="i % 2 ? 'secondary' : 'primary'"
+  [episode]="episode"
+></pa-sl-episode-list-item>

@@ -1,0 +1,46 @@
+$pa-sl-primary-color: #1b2f57;
+$pa-sl-secondary-color: #ded0c5;
+
+:host {
+  display: block;
+
+  &.primary {
+    color: $pa-sl-secondary-color;
+    background: $pa-sl-primary-color;
+  }
+
+  &.secondary {
+    color: $pa-sl-primary-color;
+    background: $pa-sl-secondary-color;
+  }
+}
+
+.header {
+  padding: 0.8em;
+
+  img {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.content {
+  padding: 1em 1.6em;
+
+  h1,
+  h2 {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 200;
+  }
+
+  h1 {
+    font-size: 1em;
+  }
+
+  h2 {
+    font-size: 0.875em;
+  }
+}

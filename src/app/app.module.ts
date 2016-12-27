@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
-import { SoundsLocalComponent } from './sounds-local/sounds-local.component';
+import { SoundsLocalModule, SoundsLocalComponent } from './sounds-local';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -28,8 +28,7 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    SearchComponent,
-    SoundsLocalComponent,
+    SearchComponent
   ],
   imports: [
     // Angular
@@ -40,7 +39,8 @@ const appRoutes: Routes = [
     MaterialModule.forRoot(),
     // App
     SharedModule,
-    ArticlesModule
+    ArticlesModule,
+    SoundsLocalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
