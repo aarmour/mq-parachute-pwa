@@ -4,11 +4,12 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 md-sidenav-container {
   flex: 1;
+  overflow: scroll;
 }
 
 md-sidenav {
