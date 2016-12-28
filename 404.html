@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Parachute by MapQuest</title>
+  <base href="/mq-parachute-pwa/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="/manifest.webmanifest?v=1">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <style>
+    html { box-sizing: border-box; }
+    *, *:before, *:after { box-sizing: inherit; }
+    body.loading .splash { opacity: 0.999; }
+    #nojs {
+      position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+      contain: strict;
+      z-index: 1500;
+      padding: 5em 1em;
+      text-align: center;
+      color: white;
+      background: #3e433e;
+    }
+    .splash {
+      position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+      overflow: hidden;
+      z-index: 1000;
+      color: white;
+      background: #3e433e;
+      opacity: 0;
+      -webkit-transition: opacity 0.2s linear; transition: opacity 0.2s linear;
+    }
+    .splash-inner { display: flex; flex-direction: column; height: 100%; }
+    .splash-body { flex: 1; display: flex; flex-direction: column; }
+    .splash-footer { height: 64px; background: black; }
+    .splash-title {
+      position: relative;
+      min-height: 64px;
+      background: #f5f5f5;
+    }
+    @media (max-width: 600px) and (orientation: portrait) {
+      .splash-title { min-height: 56px; }
+    }
+    .splash-title::before {
+      content: '';
+      display: block;
+      position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+      margin: auto;
+      width: 280px;
+      height: 20px;
+      background: transparent url(/assets/parachute-logo.png) no-repeat;
+      background-size: contain;
+    }
+    .splash-logo {
+      margin: 16px 0;
+      height: 32px;
+      background: url(/assets/mq-logo.png) no-repeat center center;
+      background-size: contain;
+    }
+    @media (max-width: 600px) and (orientation: portrait) {
+      .splash-footer { height: 56px; }
+      .splash-logo { margin: 12px 0; }
+    }
+    .splash-spinner { flex: 0; margin: auto 0; }
+    .shell-spinner {
+      font-size: 10px;
+      margin: 50px auto;
+      text-indent: -9999em;
+      width: 11em;
+      height: 11em;
+      border-radius: 50%;
+      background: #00bfe6;
+      background: -moz-linear-gradient(left, #00bfe6 10%, rgba(255, 255, 255, 0) 42%);
+      background: -webkit-linear-gradient(left, #00bfe6 10%, rgba(255, 255, 255, 0) 42%);
+      background: -o-linear-gradient(left, #00bfe6 10%, rgba(255, 255, 255, 0) 42%);
+      background: -ms-linear-gradient(left, #00bfe6 10%, rgba(255, 255, 255, 0) 42%);
+      background: linear-gradient(to right, #00bfe6 10%, rgba(255, 255, 255, 0) 42%);
+      position: relative;
+      -webkit-animation: shell-spinner 1.4s infinite linear; animation: shell-spinner 1.4s infinite linear;
+      -webkit-transform: translateZ(0); -ms-transform: translateZ(0); transform: translateZ(0);
+    }
+    .shell-spinner:before {
+      width: 50%;
+      height: 50%;
+      background: #00bfe6;
+      border-radius: 100% 0 0 0;
+      position: absolute; top: 0; left: 0;
+      content: '';
+    }
+    .shell-spinner:after {
+      background: #3e433e;
+      width: 75%;
+      height: 75%;
+      border-radius: 50%;
+      content: '';
+      margin: auto;
+      position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+    }
+    @-webkit-keyframes shell-spinner {
+      0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+    }
+    @keyframes shell-spinner {
+      0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+    }
+  </style>
+<link href="styles.286bba664bb3c2669463.bundle.css" rel="stylesheet"></head>
+<body class="loading">
+  <noscript>
+    <div id="nojs">
+      You appear to have JavaScript disabled on your device.<br>
+      Please go to your device or browser settings and enable JavaScript to use the Parachute app.
+    </div>
+  </noscript>
+
+  <div class="splash">
+    <div class="splash-inner">
+      <div class="splash-body">
+        <div class="splash-title"></div>
+        <div class="splash-spinner">
+          <div class="shell-spinner"></div>
+        </div>
+      </div>
+      <div class="splash-footer">
+        <div class="splash-logo"></div>
+      </div>
+    </div>
+  </div>
+
+  <pa-root></pa-root>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator
+        .serviceWorker
+        .register('/service-worker.js')
+        .then(() => console.log('Service worker installed'))
+        .catch(err => console.log('Service worker error:', err));
+    }
+  </script>
+<script type="text/javascript" src="inline.a4908809e8de6844eada.bundle.js"></script><script type="text/javascript" src="main.8b070eae61eb8616ae54.bundle.js"></script></body>
+</html>

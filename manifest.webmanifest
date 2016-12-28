@@ -1,0 +1,9 @@
+{
+  "name": "Parachute by MapQuest",
+  "short_name": "Parachute",
+  "description": "",
+  "start_url": "/?standalone",
+  "display": "standalone",
+  "theme_color": "#00bfe6",
+  "background_color": "#3e433e"
+}
