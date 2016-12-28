@@ -7,5 +7,9 @@
   </div>
 </md-sidenav-container>
 <div class="nav">
-  <pa-bottom-nav (openMenu)="toggleSideNav()" (search)="navigateToSearch()"></pa-bottom-nav>
+  <pa-bottom-nav
+    (openMenu)="toggleSideNav()"
+    (search)="navigateToSearch()"
+    (selectMenuItem)="onSelectNavMenuItem($event)"
+  ></pa-bottom-nav>
 </div>

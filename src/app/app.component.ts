@@ -69,6 +69,10 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/search']);
   }
 
+  onSelectNavMenuItem($event) {
+    this.router.navigate(['/', $event.menuItem]);
+  }
+
   toggleSideNav() {
     this.sidenavOpened = !this.sidenavOpened;
   }

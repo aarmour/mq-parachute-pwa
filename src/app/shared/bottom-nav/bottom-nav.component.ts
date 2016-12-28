@@ -9,18 +9,24 @@ export class BottomNavComponent implements OnInit {
 
   @Output() openMenu: EventEmitter<any> = new EventEmitter();
   @Output() search: EventEmitter<any> = new EventEmitter();
+  @Output() selectMenuItem: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  openMenuClick($event) {
+  onOpenMenuClick($event) {
     this.openMenu.emit($event);
   }
 
-  searchClick($event) {
+  onSearchClick($event) {
     this.search.emit($event);
+  }
+
+  onMenuItemClick(menuItem) {
+    console.log('onMenuItemClick:', menuItem);
+    this.selectMenuItem.emit({ menuItem });
   }
 
 }

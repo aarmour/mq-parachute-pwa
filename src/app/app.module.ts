@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { SoundsLocalModule, SoundsLocalComponent } from './sounds-local';
+import { SubscribePanelComponent } from './subscribe/subscribe-panel.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'articles/:id', component: ArticleDetailPanelComponent },
   { path: 'search', component: SearchComponent },
   { path: 'sounds-local', component: SoundsLocalComponent },
+  { path: 'subscribe', component: SubscribePanelComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    SearchComponent
+    SearchComponent,
+    SubscribePanelComponent
   ],
   imports: [
     // Angular

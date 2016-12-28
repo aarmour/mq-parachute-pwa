@@ -1,8 +1,8 @@
 <md-toolbar color="primary">
-  <button md-icon-button (click)="openMenuClick($event)">
+  <button md-icon-button (click)="onOpenMenuClick($event)">
     <md-icon>menu</md-icon>
   </button>
-  <button md-icon-button (click)="searchClick($event)">
+  <button md-icon-button (click)="onSearchClick($event)">
     <md-icon>search</md-icon>
   </button>
   <button md-icon-button>
@@ -13,8 +13,8 @@
     <md-icon>more_vert</md-icon>
   </button>
   <md-menu #menu="mdMenu">
-    <button md-menu-item> Settings </button>
-    <button md-menu-item> Subscribe </button>
-    <button md-menu-item> Help </button>
+    <button md-menu-item (click)="onMenuItemClick('settings')"> Settings </button>
+    <button md-menu-item (click)="onMenuItemClick('subscribe')"> Subscribe </button>
+    <button md-menu-item (click)="onMenuItemClick('help')"> Help </button>
   </md-menu>
 </md-toolbar>
