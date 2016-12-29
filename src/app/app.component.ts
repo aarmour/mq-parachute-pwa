@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/pairwise';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Event as NavigationEvent, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { PanelService, PanelClose } from './shared/panel';
 export class AppComponent implements OnInit {
 
   previousUrl: string;
+  sidenavContentEl;
   sidenavOpened = false;
 
   navItems = [
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     @Inject(DOCUMENT) private document: any,
+    private el: ElementRef,
     private router: Router,
     private panelService: PanelService
   ) { }
@@ -41,6 +43,9 @@ export class AppComponent implements OnInit {
     this.router.events.pairwise().subscribe((e) => {
       if (e[0] instanceof NavigationEnd) {
         this.previousUrl = e[0].url;
+        if (this.sidenavContentEl) {
+          this.sidenavContentEl.scrollTop = 0;
+        }
       }
     });
 
@@ -53,6 +58,10 @@ export class AppComponent implements OnInit {
         }
       }
     });
+  }
+
+  ngAfterViewInit() {
+    this.sidenavContentEl = this.el.nativeElement.querySelector('.md-sidenav-content');
   }
 
   hideSplash() {
