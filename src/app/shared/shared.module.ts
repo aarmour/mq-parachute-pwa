@@ -6,6 +6,7 @@ import { MaterialModule } from '@angular/material';
 import { BottomNavComponent } from './bottom-nav/bottom-nav.component';
 import { NavListComponent } from './nav-list/nav-list.component';
 import { PanelComponent, PanelService } from './panel';
+import { FadeImageDirective } from './fade-image.directive';
 
 @NgModule({
   imports: [
@@ -16,10 +17,12 @@ import { PanelComponent, PanelService } from './panel';
   declarations: [
     BottomNavComponent,
     NavListComponent,
-    PanelComponent
+    PanelComponent,
+    FadeImageDirective
   ],
   exports: [
     BottomNavComponent,
+    FadeImageDirective,
     NavListComponent,
     PanelComponent
   ],
