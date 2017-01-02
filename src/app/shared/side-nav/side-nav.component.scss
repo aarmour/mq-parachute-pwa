@@ -1,0 +1,47 @@
+$pa-side-nav-width: 18em;
+
+.backdrop {
+  display: none;
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.45);
+
+  &.opened {
+    display: block;
+  }
+}
+
+.backdrop,
+.content-wrapper {
+  bottom: 64px;
+
+  @media (max-width: 600px) and (orientation: portrait) {
+    bottom: 56px;
+  }
+
+  @media (max-width: 960px) and (orientation: landscape) {
+    bottom: 48px;
+  }
+}
+
+.content-wrapper {
+  position: fixed;
+  z-index: 1000;
+  background: white;
+  top: 0;
+  left: -$pa-side-nav-width;
+  width: $pa-side-nav-width;
+  transition: left 0.15s cubic-bezier(0.65, 0.05, 0.36, 1);
+
+  &.opened {
+    left: 0;
+  }
+}
+
+.content {
+  height: 100%;
+  overflow: scroll;
+}

@@ -1,15 +1,12 @@
-<md-sidenav-container>
-  <md-sidenav #start [opened]="sidenavOpened">
-    <pa-nav-list [navItems]="navItems"></pa-nav-list>
-  </md-sidenav>
-  <div class="main">
-    <router-outlet></router-outlet>
-  </div>
-</md-sidenav-container>
-<div class="nav">
-  <pa-bottom-nav
-    (openMenu)="toggleSideNav()"
-    (search)="navigateToSearch()"
-    (selectMenuItem)="onSelectNavMenuItem($event)"
-  ></pa-bottom-nav>
+<pa-side-nav [opened]="sideNavOpened" (close)="onSideNavClose()">
+  <pa-nav-list [navItems]="navItems"></pa-nav-list>
+</pa-side-nav>
+<div class="content" #content>
+  <router-outlet></router-outlet>
 </div>
+<pa-bottom-nav
+  (openMenu)="toggleSideNav()"
+  (search)="navigateToSearch()"
+  (selectMenuItem)="onSelectNavMenuItem($event)"
+>
+</pa-bottom-nav>

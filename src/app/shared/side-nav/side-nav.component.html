@@ -1,0 +1,6 @@
+<div class="content-wrapper" [ngClass]="{'opened': opened}">
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>
+<div class="backdrop" [ngClass]="{'opened': opened}" (click)="onBackdropClick()"></div>

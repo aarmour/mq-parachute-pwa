@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/pairwise';
-import { Component, ElementRef, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Event as NavigationEvent, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
@@ -13,8 +13,9 @@ import { PanelService, PanelClose } from './shared/panel';
 export class AppComponent implements OnInit {
 
   previousUrl: string;
-  sidenavContentEl;
-  sidenavOpened = false;
+  sideNavOpened = false;
+
+  @ViewChild('content') contentEl;
 
   navItems = [
     { icon: 'home', label: 'Home', routerLink: '/home' },
@@ -36,16 +37,14 @@ export class AppComponent implements OnInit {
 
     this.router.events.forEach((event: NavigationEvent) => {
       if (event instanceof NavigationStart) {
-        this.sidenavOpened = false;
+        this.sideNavOpened = false;
       }
     });
 
     this.router.events.pairwise().subscribe((e) => {
       if (e[0] instanceof NavigationEnd) {
         this.previousUrl = e[0].url;
-        if (this.sidenavContentEl) {
-          this.sidenavContentEl.scrollTop = 0;
-        }
+        this.contentEl.nativeElement.scrollTop = 0;
       }
     });
 
@@ -58,10 +57,6 @@ export class AppComponent implements OnInit {
         }
       }
     });
-  }
-
-  ngAfterViewInit() {
-    this.sidenavContentEl = this.el.nativeElement.querySelector('.md-sidenav-content');
   }
 
   hideSplash() {
@@ -82,8 +77,12 @@ export class AppComponent implements OnInit {
     this.router.navigate(['/', $event.menuItem]);
   }
 
+  onSideNavClose() {
+    this.sideNavOpened = false;
+  }
+
   toggleSideNav() {
-    this.sidenavOpened = !this.sidenavOpened;
+    this.sideNavOpened = !this.sideNavOpened;
   }
 
 }

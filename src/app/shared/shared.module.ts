@@ -7,6 +7,7 @@ import { BottomNavComponent } from './bottom-nav/bottom-nav.component';
 import { NavListComponent } from './nav-list/nav-list.component';
 import { PanelComponent, PanelService } from './panel';
 import { FadeImageDirective } from './fade-image.directive';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   imports: [
@@ -18,13 +19,15 @@ import { FadeImageDirective } from './fade-image.directive';
     BottomNavComponent,
     NavListComponent,
     PanelComponent,
-    FadeImageDirective
+    FadeImageDirective,
+    SideNavComponent
   ],
   exports: [
     BottomNavComponent,
     FadeImageDirective,
     NavListComponent,
-    PanelComponent
+    PanelComponent,
+    SideNavComponent
   ],
   providers: [
     PanelService
